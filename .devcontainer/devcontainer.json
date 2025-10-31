@@ -67,8 +67,8 @@
   "portsAttributes": {
     "5173": {
       "label": "Task Manager App",
-      "onAutoForward": "notify",
-      "protocol": "https"
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
     }
   },
 
