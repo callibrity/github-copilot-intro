@@ -1,0 +1,112 @@
+/* TaskBoard (Kanban) Styles */
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 100%;
+}
+
+/* Board Column */
+.board-column {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  max-height: calc(100vh - 400px);
+}
+
+.column-header {
+  padding: 16px;
+  border-bottom: 2px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.column-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.task-count {
+  background: var(--color-primary);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Column Content */
+.column-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.column-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.column-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.column-content::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.column-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Empty Column State */
+.empty-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.empty-column p {
+  margin: 0;
+}
+
+/* Column-specific styling */
+.board-column:nth-child(1) .column-header {
+  border-left: 4px solid var(--color-secondary);
+}
+
+.board-column:nth-child(2) .column-header {
+  border-left: 4px solid var(--color-warning);
+}
+
+.board-column:nth-child(3) .column-header {
+  border-left: 4px solid var(--color-success);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .task-board {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .board-column {
+    min-height: 300px;
+    max-height: none;
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "name": "AI Workshop - Task Manager (GitHub Copilot)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.eol": "\n",
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "github.copilot.enable": {
+          "*": true,
+          "javascript": true,
+          "javascriptreact": true,
+          "typescript": true,
+          "typescriptreact": true,
+          "markdown": true
+        },
+        "editor.inlineSuggest.enabled": true,
+        "editor.quickSuggestions": {
+          "comments": "on",
+          "strings": "on",
+          "other": "on"
+        },
+        "editor.suggestOnTriggerCharacters": true,
+        "editor.acceptSuggestionOnEnter": "on",
+        "github.copilot.editor.enableAutoCompletions": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "workbench.colorTheme": "Default Dark Modern",
+        "editor.fontSize": 14,
+        "editor.lineHeight": 1.6,
+        "editor.minimap.enabled": true
+      }
+    }
+  },
+
+  "forwardPorts": [5173],
+
+  "portsAttributes": {
+    "5173": {
+      "label": "Task Manager App",
+      "onAutoForward": "notify",
+      "protocol": "https"
+    }
+  },
+
+  "postCreateCommand": "npm install",
+
+  "postStartCommand": "echo '\n🤖 AI Workshop Environment Ready!\n\n✅ GitHub Copilot is ENABLED\n✅ All dependencies installed\n✅ Ready to code!\n\n🚀 Start the app: npm run dev\n💬 Open Copilot Chat: Ctrl+Shift+I (Cmd+Shift+I on Mac)\n✨ Inline suggestions will appear as you type\n\n📚 See README.md for workshop exercises.\n'",
+
+  "remoteUser": "node",
+
+  "onCreateCommand": "echo '⏳ Setting up your workshop environment...' && echo '📦 Installing Node.js packages...'",
+
+  "waitFor": "postCreateCommand"
+}
