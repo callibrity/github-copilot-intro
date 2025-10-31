@@ -15,10 +15,15 @@ A hands-on workshop introducing developers to GitHub Copilot's four interaction 
 1. Click the green **"Code"** button above
 2. Select **"Codespaces"** tab
 3. Click **"Create codespace on main"**
-4. Wait 2-3 minutes for setup
-5. When ready, run: `npm run dev`
-6. Click **"Open in Browser"** when prompted
-7. You'll see the Task Manager app in a new browser tab!
+4. Wait 2-3 minutes for setup (you'll see a VS Code interface loading in your browser)
+5. When ready, **open the terminal**:
+   - Look at the bottom of the screen for the Terminal panel
+   - Or press **Ctrl+`** (backtick) to toggle it
+   - Or use menu: Terminal → New Terminal
+6. In the terminal, type: `npm run dev` and press Enter
+7. After a few seconds, a notification will pop up saying "Your application running on port 5173 is available"
+8. Click **"Open in Browser"** in the notification
+9. You'll see the Task Manager app in a new browser tab!
 
 **That's it!** GitHub Copilot is pre-installed and ready to use.
 
