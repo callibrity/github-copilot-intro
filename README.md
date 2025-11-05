@@ -227,7 +227,7 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 1. First, open `src/utils/dateHelpers.test.js` to see existing tests
 2. Notice the test structure and patterns
 3. Now open `src/utils/dateHelpers.js`
-4. Highlight the `isOverdue` function (lines 66-75)
+4. Highlight the `compareDates` function (lines 101-111)
 5. Press **Ctrl/Cmd+I**
 6. Type: `/tests`
 7. Review the test cases Copilot generates
@@ -242,9 +242,7 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 5. Type: `/fix`
 6. Copilot will add the missing imports!
 
-**Try it:** Run `npm test` to execute all tests!
-
-**Note:** The `isOverdue` tests might fail! That's because this function has intentional bugs (you'll fix them in Exercise 3). This shows how tests can catch bugs in your code.
+**Try it:** Run `npm test` to execute all tests - they should all pass! ✅
 
 **Key Learning:** AI-generated code isn't always perfect on the first try. Using `/fix` after `/tests` is a common workflow pattern!
 
@@ -563,7 +561,7 @@ Why would this mark today's tasks as overdue?"
 **Use:** ✏️ Inline Chat
 
 1. Open `src/utils/dateHelpers.js`
-2. Highlight the `isOverdue` function (lines 55-64)
+2. Highlight the `isOverdue` function (lines 66-75)
 3. Press **Ctrl/Cmd+I**
 4. Ask: `"This marks tasks due today as overdue. What's wrong?"`
 
@@ -575,6 +573,16 @@ Copilot should identify: **Comparing full timestamps instead of dates, wrong ope
 1. Add comment: `// Check if date is before today (not including today)`
 2. Rewrite function, let Copilot suggest correct logic
 3. Test: Task due today should NOT show "Overdue!"
+
+#### Step 4 (Optional): Generate Tests (3 min)
+**Use:** ✏️ Inline Chat
+
+Now that the function works, generate tests to prevent regression:
+1. Highlight the fixed `isOverdue` function
+2. Press **Ctrl/Cmd+I**
+3. Type: `/tests`
+4. Add tests to `dateHelpers.test.js`
+5. Run `npm test` - tests should pass! ✅
 
 ---
 
