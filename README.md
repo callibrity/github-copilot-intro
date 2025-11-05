@@ -231,30 +231,22 @@ This workshop includes a `.github/copilot-instructions.md` file that tells Copil
 4. Type: `/doc`
 5. Review the JSDoc comments Copilot adds!
 
-**Task 3: Generate tests**
-1. First, open `src/utils/dateHelpers.test.js` to see existing tests
-2. Notice the test structure and patterns
-3. Now open `src/utils/dateHelpers.js`
-4. Highlight the `compareDates` function (lines 101-111)
-5. Press **Ctrl/Cmd+I**
-6. Type: `/tests`
-7. Review the test cases Copilot generates
+**Task 3: Explore code simplification**
+1. Open `src/utils/dateHelpers.js`
+2. Highlight the `getRelativeTime` function (lines 37-57)
+3. Press **Ctrl/Cmd+I**
+4. Type: `/simplify`
+5. Review Copilot's suggestions for simplifying the code
 
-**Observe:**
-- Copilot matches the style of existing tests! It learned from the codebase.
-- Copilot may generate tests for **multiple functions** (not just `compareDates`). It sees the file context and creates comprehensive tests. That's helpful! You can keep all the tests or just use the ones you need.
+**Observe:** Copilot may suggest:
+- Reducing nested conditionals
+- Using early returns
+- Creating helper functions
+- More concise patterns
 
-**If imports are missing** (common issue):
-1. Accept the generated tests and add them to `dateHelpers.test.js`
-2. Notice red squiggly lines under missing imports
-3. Highlight the entire test block you just added
-4. Press **Ctrl/Cmd+I**
-5. Type: `/fix`
-6. Copilot will add the missing imports!
+**Important:** You don't have to accept the changes! This is about **learning** what "simpler" code might look like. Press Escape to dismiss without applying changes.
 
-**Try it:** Run `npm test` to execute all tests - they should all pass! ✅
-
-**Key Learning:** AI-generated code isn't always perfect on the first try. Using `/fix` after `/tests` is a common workflow pattern!
+**Key Learning:** `/simplify` helps you understand different ways to structure code and learn refactoring patterns!
 
 **Task 4: Understand React patterns**
 1. Open `src/components/TaskManager.jsx`
