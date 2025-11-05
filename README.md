@@ -219,7 +219,7 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 
 Pick one (or try multiple):
 - ⭐ **Easy:** Priority filter checkboxes
-- ⭐⭐ **Medium:** Category multi-select filters
+- ⭐⭐ **Medium:** Date range filter
 - ⭐⭐⭐ **Advanced:** Dark mode toggle
 - ⭐⭐⭐ **Advanced:** Bulk operations
 
@@ -267,32 +267,36 @@ Save and check the browser. If issues:
 
 ---
 
-### Feature B: Category Multi-Select Filters
+### Feature B: Date Range Filter
 
-#### Step 1: Plan (2 min)
+#### Step 1: Plan (3 min)
 **Use:** 💬 Chat
 
 ```
-"I want to add category filtering with multi-select checkboxes.
-The app has categories: Work, Personal, Shopping, Health.
-How should I implement this?"
+"I want to add a date range filter (from/to dates) to filter tasks by due date.
+What's the best approach? Note: some tasks may not have due dates (null).
+I need to handle edge cases like only 'from' or only 'to' being set."
 ```
 
-#### Step 2: Get Categories (4 min)
+#### Step 2: Add Date Inputs (4 min)
 **Use:** ✏️ Inline Chat
 
-1. Notice `getUniqueCategories` exists in `src/utils/taskFilters.js`
-2. In `TaskManager.jsx` component body
-3. Type: `// Get unique categories`
-4. Let autocomplete suggest: `const categories = getUniqueCategories(tasks);`
+1. Open `src/components/TaskManager.jsx`
+2. Find the `FilterControls` component
+3. Highlight the JSX return section
+4. Press **Ctrl/Cmd+I**
+5. Ask: `"Add two date inputs for filtering by date range: 'From date' and 'To date'"`
 
-#### Step 3: Add UI (5 min)
-**Use:** 👻 Autocomplete + ✏️ Inline Chat
+#### Step 3: Implement Filter Handler (5 min)
+**Use:** 👻 Autocomplete
 
-1. In `FilterControls` component
-2. Type: `// Category filter checkboxes`
-3. Let Copilot suggest JSX
-4. If wrong, highlight and use Inline Chat: `"Create checkboxes for each category"`
+1. In `FilterControls`, add a handler
+2. Type: `// Handle date range filter changes`
+3. Press Enter, then type: `const handleDateRangeChange = (`
+4. Let Copilot suggest the implementation
+5. Verify it updates the filters state with date range values
+
+**Tip:** The `applyFilters` function in `taskFilters.js` may need updating to handle date ranges. Check if Copilot suggests this or use Inline Chat to add date range logic.
 
 ---
 
