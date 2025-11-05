@@ -522,86 +522,128 @@ Agent will diagnose issues and fix them!
 
 **Goal:** Use Copilot to find and fix bugs
 
-The Task Manager has **3 intentional bugs**. Find and fix them!
+The Task Manager has **3 intentional bugs**. Find and fix them using different Copilot modes!
 
 ---
 
-### Bug #1: The Disappearing Tasks
+### Bug #1: The Missing Task Bug
 
-**Symptom:** Tasks disappear when you refresh the page
+**Symptom:** When you create a new task, it doesn't appear in the UI until you refresh the page
 
-#### Step 1: Describe Problem (2 min)
-**Use:** 💬 Chat
+**Copilot Mode:** 💬 **Chat Mode with @workspace** (multi-file investigation)
+
+#### Step 1: Describe the Problem (2 min)
+**Use:** 💬 Chat Mode
+
+Open Copilot Chat (Ctrl/Cmd+Shift+I) and describe what you're seeing:
 
 ```
-"I have a bug where tasks disappear on page refresh.
-I'm using localStorage to persist them. What could cause this?"
-
-Follow-up: "What are common useEffect and localStorage mistakes?"
+"I have a bug where new tasks don't appear in the UI immediately after I create them.
+They only show up after I refresh the page. What could cause this?"
 ```
 
-#### Step 2: Examine Code (3 min)
+**Observe:** Copilot will suggest common causes related to state updates in React.
+
+Follow-up question:
+```
+"@workspace Trace the data flow when I submit the TaskForm.
+How does the new task get added to the tasks array?"
+```
+
+**Key Learning:** Using `@workspace` helps Copilot search across multiple files to understand the full data flow.
+
+#### Step 2: Locate the Problem (3 min)
+**Use:** 💬 Chat Mode
+
+Based on Copilot's suggestions, ask:
+```
+"Show me the addTask function in useTasks.js. Is there a state update issue?"
+```
+
+Or navigate to `src/hooks/useTasks.js` and find the `addTask` function yourself (around line 114).
+
+#### Step 3: Investigate with Inline Chat (3 min)
 **Use:** ✏️ Inline Chat
 
-1. Open `src/hooks/useLocalStorage.js`
-2. Highlight the `useEffect` at the bottom (lines 39-48)
+1. Open `src/hooks/useTasks.js`
+2. Highlight the entire `addTask` function (lines 114-127)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"Is there a problem with this useEffect?"`
+4. Ask: `"Why isn't this triggering a re-render in React?"`
 
-Copilot should identify: **Missing 'key' in dependency array**
+**Observe:** Copilot should identify the array mutation issue!
 
-#### Step 3: Fix It (2 min)
-**Use:** 👻 Autocomplete
+#### Step 4: Fix It (2 min)
+**Use:** ✏️ Inline Chat
 
-1. Start fixing the dependency array
-2. Type the opening bracket `[`
-3. Let Copilot suggest the correct dependencies
-4. Test: Save, refresh browser, tasks should persist!
+With the `addTask` function still highlighted:
+1. Press **Ctrl/Cmd+I**
+2. Ask: `"Fix this to properly update React state"`
+3. Review and accept the fix
+
+**Test:** Create a new task - it should appear immediately! ✅
+
+**Key Takeaway:** Array mutations don't trigger React re-renders. Always create new array references.
 
 ---
 
 ### Bug #2: The Today Paradox
 
-**Symptom:** Tasks due TODAY incorrectly show as "Overdue!"
+**Symptom:** Tasks due TODAY incorrectly show as "Overdue!" in red
 
-#### Step 1: Understand Issue (2 min)
-**Use:** 💬 Chat
+**Copilot Mode:** ✏️ **Inline Chat with /explain and /fix**
 
+#### Step 1: Understand the Issue (2 min)
+**Use:** 💬 Chat Mode (optional)
+
+You can ask Chat first to understand the problem:
 ```
-"I have a bug where tasks due today show as overdue.
-Here's my isOverdue function:
-
-[paste the function from dateHelpers.js]
-
-Why would this mark today's tasks as overdue?"
+"Tasks due today are showing as overdue. Where should I look for date comparison logic?"
 ```
 
-#### Step 2: Examine Function (3 min)
+Or jump directly to the code if you found it: `src/utils/dateHelpers.js`
+
+#### Step 2: Examine with /explain (2 min)
 **Use:** ✏️ Inline Chat
 
 1. Open `src/utils/dateHelpers.js`
-2. Highlight the `isOverdue` function (lines 66-75)
+2. Find and highlight the `isOverdue` function (lines 64-71)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"This marks tasks due today as overdue. What's wrong?"`
+4. Type: `/explain`
 
-Copilot should identify: **Comparing full timestamps instead of dates, wrong operator**
+**Observe:** Copilot explains what the function does. Read carefully!
 
-#### Step 3: Fix It (3 min)
-**Use:** 👻 Autocomplete
-
-1. Add comment: `// Check if date is before today (not including today)`
-2. Rewrite function, let Copilot suggest correct logic
-3. Test: Task due today should NOT show "Overdue!"
-
-#### Step 4 (Optional): Generate Tests (3 min)
+#### Step 3: Ask About the Bug (2 min)
 **Use:** ✏️ Inline Chat
 
-Now that the function works, generate tests to prevent regression:
+With the `isOverdue` function still highlighted:
+1. Press **Ctrl/Cmd+I**
+2. Ask: `"This marks tasks due today as overdue. What's wrong with the logic?"`
+
+**Observe:** Copilot should identify the timestamp comparison issue!
+
+#### Step 4: Fix It (2 min)
+**Use:** ✏️ Inline Chat
+
+With the function still highlighted:
+1. Press **Ctrl/Cmd+I**
+2. Ask: `"Fix this to only mark tasks as overdue if they're before today (not including today)"`
+3. Review the fix - it should strip time components and compare dates only
+4. Accept the changes
+
+**Test:** Tasks due today should NO LONGER show "Overdue!" ✅
+
+#### Step 5 (Optional): Generate Tests (3 min)
+**Use:** ✏️ Inline Chat with /tests
+
+Now that the function works, prevent future bugs:
 1. Highlight the fixed `isOverdue` function
 2. Press **Ctrl/Cmd+I**
 3. Type: `/tests`
-4. Add tests to `dateHelpers.test.js`
-5. Run `npm test` - tests should pass! ✅
+4. Review the test cases Copilot generates
+5. Add them to `src/utils/dateHelpers.test.js`
+6. Run `npm test` - all tests should pass! ✅
+
+**Key Takeaway:** The `/explain` → analyze → `/fix` workflow is powerful for understanding and fixing bugs.
 
 ---
 
@@ -609,46 +651,56 @@ Now that the function works, generate tests to prevent regression:
 
 **Symptom:** Sorting by due date shows tasks in wrong order
 
-#### Step 1: Reproduce (1 min)
+**Copilot Mode:** 💬 **Chat with @workspace** + ✏️ **Inline Chat with context**
 
-1. Switch to "List" view in browser
-2. Change sort to "Due Date"
-3. Notice incorrect order
+#### Step 1: Reproduce the Bug (1 min)
 
-#### Step 2: Find Code (2 min)
-**Use:** 🤖 @workspace
+1. Open the app in your browser
+2. Switch to **"List"** view
+3. Change sort dropdown to **"Due Date"**
+4. **Observe:** Tasks are NOT in chronological order!
+
+#### Step 2: Find the Sorting Code (2 min)
+**Use:** 💬 Chat with @workspace
 
 ```
-"@workspace Search for date sorting functions.
-I have a bug where sorting by due date doesn't work correctly."
+"@workspace Where is the due date sorting logic?
+I need to fix a bug where tasks aren't sorting correctly by due date."
 ```
 
-Should find `sortByDueDate` in `taskFilters.js`
+**Observe:** Copilot should point you to `sortByDueDate` in `taskFilters.js`
 
-#### Step 3: Analyze Bug (3 min)
+#### Step 3: Analyze the Bug (3 min)
 **Use:** ✏️ Inline Chat
 
 1. Open `src/utils/taskFilters.js`
-2. Highlight `sortByDueDate` function (lines 95-107)
+2. Find and highlight the `sortByDueDate` function (lines 146-154)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"This sort doesn't work correctly. What's the bug?"`
+4. Ask: `"This sort function doesn't work correctly. What's the bug?"`
 
-Copilot should identify: **String comparison instead of Date objects**
+**Observe:** Copilot should identify that string comparison doesn't work for dates!
 
-#### Step 4: Fix It (3 min)
-**Use:** ✏️ Inline Chat
+#### Step 4: Fix Using Helper Functions (3 min)
+**Use:** ✏️ Inline Chat with context
 
-Highlight buggy logic, ask:
-```
-"Fix this to use Date objects instead of string comparison,
-and use the compareDates function from this file"
-```
+Notice that `taskFilters.js` imports `compareDates` from `dateHelpers.js` (line 6). Let's use it!
 
-Or rewrite using hint from Chat that mentioned `compareDates`
+With the `sortByDueDate` function still highlighted:
+1. Press **Ctrl/Cmd+I**
+2. Ask: `"Fix this to use the compareDates helper function that's already imported at the top of this file"`
+3. Review the fix
+4. Accept the changes
 
-#### Step 5: Test (1 min)
+**Test:** Switch to List view, sort by Due Date - tasks should now be in correct chronological order! ✅
 
-Save, sort by due date, verify chronological order!
+#### Step 5: Verify Edge Cases (1 min)
+
+Test that the sort handles:
+- Tasks with no due date (should appear at the end)
+- Tasks with the same due date
+- Mix of past, today, and future dates
+
+**Key Takeaway:** Use `#file:` and context awareness to leverage existing code patterns. Don't reinvent the wheel!
 
 ---
 

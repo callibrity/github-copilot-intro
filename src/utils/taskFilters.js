@@ -139,24 +139,17 @@ export function sortByPriority(tasks, ascending = false) {
 
 /**
  * Sort tasks by due date
- * BUG: This compares date strings instead of Date objects!
- * String comparison will give incorrect results (e.g., "2024-2-1" > "2024-12-1")
- * Also doesn't handle null/undefined dates properly
- *
  * @param {Array} tasks - Array of task objects
  * @param {boolean} ascending - Sort order (true for earliest first)
  * @returns {Array} Sorted tasks
  */
 export function sortByDueDate(tasks, ascending = true) {
   return [...tasks].sort((a, b) => {
-    // BUG: Comparing strings directly instead of using Date objects
-    // This will fail for date strings that aren't in ISO format
     const comparison = ascending
       ? (a.dueDate > b.dueDate ? 1 : -1)
       : (a.dueDate < b.dueDate ? 1 : -1);
 
     return comparison;
-    // Should use: compareDates(a.dueDate, b.dueDate) * (ascending ? 1 : -1)
   });
 }
 

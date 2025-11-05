@@ -4,10 +4,6 @@ import { useState, useEffect } from 'react';
  * Custom hook for syncing state with localStorage
  * Persists state across page refreshes
  *
- * BUG: The dependency array in useEffect is incomplete!
- * It's missing the 'key' parameter, so it only saves on first render
- * and won't update localStorage if the key changes.
- *
  * @param {string} key - localStorage key
  * @param {*} initialValue - Initial value if no stored value exists
  * @returns {Array} [storedValue, setValue] - Similar to useState
@@ -44,17 +40,14 @@ export function useLocalStorage(key, initialValue) {
     }
   };
 
-  // BUG: This useEffect is missing 'key' in the dependency array!
-  // This means if the component using this hook changes the key prop,
-  // the effect won't run and the data won't be saved to the new key.
-  // Also, storedValue changes don't trigger a save.
+  // Sync state changes to localStorage
   useEffect(() => {
     try {
       window.localStorage.setItem(key, JSON.stringify(storedValue));
     } catch (error) {
       console.error(`Error syncing ${key} to localStorage:`, error);
     }
-  }, [storedValue]); // BUG: Missing 'key' in dependency array!
+  }, [key, storedValue]);
 
   return [storedValue, setValue];
 }

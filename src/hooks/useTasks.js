@@ -103,7 +103,6 @@ const INITIAL_TASKS = [
  */
 export function useTasks() {
   // Use localStorage to persist tasks
-  // BUG will manifest here - tasks won't persist on refresh
   const [tasks, setTasks] = useLocalStorage('tasks', INITIAL_TASKS);
 
   /**
@@ -119,9 +118,12 @@ export function useTasks() {
       status: taskData.status || 'todo'
     };
 
-    setTasks(prevTasks => [...prevTasks, newTask]);
+    // Add the new task to the array
+    tasks.push(newTask);
+    setTasks(tasks);
+
     return newTask;
-  }, [setTasks]);
+  }, [tasks, setTasks]);
 
   /**
    * Update an existing task

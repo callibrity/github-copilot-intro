@@ -58,8 +58,6 @@ export function getRelativeTime(date) {
 
 /**
  * Check if a date is overdue (past today)
- * BUG: This uses > instead of >= for today comparison
- * Tasks due TODAY will incorrectly show as overdue!
  * @param {Date|string} date - Date to check
  * @returns {boolean} True if overdue
  */
@@ -69,9 +67,7 @@ export function isOverdue(date) {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   const today = new Date();
 
-  // BUG: Using full timestamp comparison instead of date-only comparison
-  // This means a task due "today" at 8am will show overdue if checked at 9am
-  return dateObj > today;  // Should strip time component first!
+  return dateObj < today;
 }
 
 /**
