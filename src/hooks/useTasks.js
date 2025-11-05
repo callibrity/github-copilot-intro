@@ -92,6 +92,26 @@ const INITIAL_TASKS = [
     status: 'todo',
     dueDate: null, // No due date
     createdAt: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString()
+  },
+  {
+    id: '9',
+    title: 'Prepare tax documents',
+    description: 'Gather receipts and forms for tax filing',
+    priority: 'high',
+    category: 'Personal',
+    status: 'todo',
+    dueDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString(), // 90 days out
+    createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+  },
+  {
+    id: '10',
+    title: 'Team standup',
+    description: 'Daily team sync meeting',
+    priority: 'medium',
+    category: 'Work',
+    status: 'todo',
+    dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days out
+    createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()
   }
 ];
 
