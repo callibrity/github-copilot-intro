@@ -672,7 +672,7 @@ With the function still highlighted:
 Now that the function works, prevent future bugs:
 1. Highlight the fixed `isOverdue` function
 2. Right-click on the selected code
-3. Choose **"Copilot" → "Generate Tests"**
+3. Choose **"Generate Code" → "Generate Tests"**
 4. Review the test cases Copilot generates (should be scoped to just `isOverdue`)
 5. Add them to `src/utils/dateHelpers.test.js`
 6. Run `npm test` - all tests should pass! ✅
