@@ -649,7 +649,7 @@ Now that the function works, prevent future bugs:
 
 ### Bug #3: The Sorting Shuffle
 
-**Symptom:** Sorting by due date shows tasks in wrong order
+**Symptom:** When sorting by due date, "Organize garage" (which has no due date) appears FIRST instead of LAST, regardless of sort direction
 
 **Copilot Mode:** 💬 **Chat with @workspace** + ✏️ **Inline Chat with context**
 
@@ -658,7 +658,9 @@ Now that the function works, prevent future bugs:
 1. Open the app in your browser
 2. Switch to **"List"** view
 3. Change sort dropdown to **"Due Date"**
-4. **Observe:** Tasks are NOT in chronological order!
+4. **Observe:** "Organize garage" (no due date) appears at the TOP of the list
+5. Toggle between ascending ↑ and descending ↓
+6. **Observe:** "Organize garage" stays at the TOP regardless of direction!
 
 #### Step 2: Find the Sorting Code (2 min)
 **Use:** 💬 Chat with @workspace
@@ -678,7 +680,7 @@ I need to fix a bug where tasks aren't sorting correctly by due date."
 3. Press **Ctrl/Cmd+I**
 4. Ask: `"This sort function doesn't work correctly. What's the bug?"`
 
-**Observe:** Copilot should identify that string comparison doesn't work for dates!
+**Observe:** Copilot should identify that the function doesn't handle null/undefined dates properly!
 
 #### Step 4: Fix Using Helper Functions (3 min)
 **Use:** ✏️ Inline Chat with context
