@@ -4,7 +4,7 @@ A hands-on workshop introducing developers to GitHub Copilot's four interaction 
 
 **Duration:** 90 minutes
 **Level:** Beginner-friendly
-**Tool:** GitHub Copilot (autocomplete, chat, inline chat, @workspace)
+**Tool:** GitHub Copilot (autocomplete, chat, inline chat, agent mode)
 
 ---
 
@@ -93,6 +93,11 @@ By the end, you'll know:
 - **Mac:** Cmd+Shift+I
 - Or click chat icon in sidebar
 
+**Chat submodes:**
+- **Ask** - Get answers and suggestions (default)
+- **Edit** - Request direct code changes
+- **Agent** - Autonomous coding (see Mode 4 below)
+
 **Best for:** Understanding concepts, planning, asking "how" and "why"
 
 **Example prompts:**
@@ -102,8 +107,8 @@ By the end, you'll know:
 "@workspace Where are tasks stored?"
 ```
 
-**Special features:**
-- `@workspace` - Ask about entire codebase
+**Context features:**
+- `@workspace` - Search and understand entire codebase
 - `#file:name.js` - Reference specific files
 - `/explain` - Explain code
 - `/fix` - Suggest fixes
@@ -130,23 +135,33 @@ By the end, you'll know:
 
 ---
 
-### Mode 4: 🤖 Agent Mode (@workspace)
+### Mode 4: 🚀 Agent Mode
 
-**What it is:** Copilot that understands your entire codebase
+**What it is:** Autonomous AI that plans, executes, and iterates on complex tasks
 
 **How to use:**
 1. Open Chat (Ctrl/Cmd+Shift+I)
-2. Start prompt with `@workspace`
-3. Copilot searches across files
-4. Get context-aware answers
+2. Click the dropdown (shows "Ask" by default)
+3. Select **Agent**
+4. Describe your high-level goal
 
-**Best for:** Finding code, understanding architecture, multi-file tasks
+**What makes it special:**
+- Plans multi-step work autonomously
+- Makes edits across multiple files
+- Runs terminal commands
+- Fixes its own errors automatically
+- Iterates until task is complete
+
+**Best for:** Complex features, refactoring, multi-file changes, "build this for me" requests
 
 **Example:**
 ```
-"@workspace Where are tasks updated when status changes?"
-"@workspace Find all date comparison bugs"
+"Add user authentication with login and signup pages"
+"Refactor the state management to use Redux"
+"Create a settings page with dark mode toggle"
 ```
+
+**Note:** Requires VS Code 1.99+ with Agent mode enabled
 
 ---
 
@@ -575,8 +590,9 @@ Don't accept the first suggestion blindly:
 |------|-----------|-----|
 | Quick completion | 👻 Autocomplete | Fastest for obvious next steps |
 | Understanding "why" | 💬 Chat | Detailed explanations |
+| Understanding codebase | 💬 Chat with @workspace | Searches across all files |
 | Modifying code | ✏️ Inline Chat | Context-aware changes |
-| Multi-file tasks | 🤖 @workspace | Codebase understanding |
+| Complex multi-file features | 🚀 Agent Mode | Autonomous, plans and executes |
 
 ---
 
