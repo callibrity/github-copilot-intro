@@ -110,8 +110,17 @@ By the end, you'll know:
 **Context features:**
 - `@workspace` - Search and understand entire codebase
 - `#file:name.js` - Reference specific files
+
+**Slash commands:**
 - `/explain` - Explain code
-- `/fix` - Suggest fixes
+- `/fix` - Fix errors
+- `/tests` - Generate tests
+- `/doc` - Add documentation
+- `/optimize` - Improve performance
+- `/simplify` - Simplify code
+- `/new` - Set up new project
+- `/newNotebook` - Create Jupyter notebook
+- `/help` - List all commands
 
 ---
 
@@ -127,11 +136,13 @@ By the end, you'll know:
 
 **Best for:** Understanding specific functions, modifying code, refactoring
 
-**Commands:**
-- `/doc` - Generate documentation
+**Slash commands (work here too!):**
 - `/explain` - Explain the code
 - `/fix` - Fix problems
 - `/tests` - Generate tests
+- `/doc` - Generate documentation
+- `/optimize` - Improve performance
+- `/simplify` - Simplify code
 
 ---
 
