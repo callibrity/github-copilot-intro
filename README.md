@@ -426,6 +426,8 @@ Which files need changes?"
 
 **Note:** Requires VS Code 1.99+. If Agent mode isn't available, use @workspace with Edit mode instead.
 
+**🏀 Fun Fact:** This project has a `.github/copilot-instructions.md` file that tells Agent Mode to prefix responses with "Boomshakalaka! " - watch for it! This demonstrates that Agent Mode actually reads project instructions.
+
 #### Step 1: Activate Agent Mode (1 min)
 
 1. Open Copilot Chat (**Ctrl/Cmd+Shift+I**)
