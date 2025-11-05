@@ -283,11 +283,13 @@ I need to handle edge cases like only 'from' or only 'to' being set."
 
 1. Open `src/components/TaskManager.jsx`
 2. Find the `FilterControls` component
-3. Highlight the JSX return section
+3. Highlight the entire function (not just the JSX)
 4. Press **Ctrl/Cmd+I**
 5. Ask: `"Add two date inputs for filtering by date range: 'From date' and 'To date'"`
 
-#### Step 3: Implement Filter Handler (5 min)
+**Note:** Copilot may generate both UI and handler logic (like `handleDateChange`). Check what was created - if the handler is already there, you can skip Step 3!
+
+#### Step 3: Implement Filter Handler (5 min) - *Skip if generated in Step 2*
 **Use:** 👻 Autocomplete
 
 1. In `FilterControls`, add a handler
