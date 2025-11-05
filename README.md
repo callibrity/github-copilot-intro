@@ -282,8 +282,8 @@ This workshop includes a `.github/copilot-instructions.md` file that tells Copil
 Pick one (or try multiple):
 - ⭐ **Easy:** Priority filter checkboxes
 - ⭐⭐ **Medium:** Date range filter
-- ⭐⭐⭐ **Advanced:** Dark mode toggle
-- ⭐⭐⭐ **Advanced:** Bulk operations
+- ⭐⭐⭐ **Advanced (Agent Mode):** Dark mode toggle
+- ⭐⭐⭐ **Advanced (Agent Mode):** Bulk operations
 
 ---
 
@@ -387,72 +387,76 @@ I need to handle edge cases like only 'from' or only 'to' being set."
 
 ---
 
-### Feature C: Dark Mode Toggle
+### Feature C: Dark Mode Toggle (Agent Mode)
 
-#### Step 1: Plan (3 min)
-**Use:** 🤖 @workspace
+**Goal:** Watch Agent Mode handle a feature that requires architectural planning
+
+**Why Agent Mode?** Dark mode is best implemented with a Context Provider and proper theme architecture. Trying to do this incrementally with Autocomplete would result in messy code. Agent Mode can plan and execute the proper architecture.
+
+#### Step 1: Activate Agent Mode (1 min)
+
+1. Open Copilot Chat (**Ctrl/Cmd+Shift+I**)
+2. Click the dropdown and select **Agent**
+
+#### Step 2: Give Agent the Task (2 min)
+**Use:** 🚀 Agent Mode
+
+Type this request:
 
 ```
-"@workspace I want to add dark mode support. I need:
-1. A toggle button in the header
-2. Dark color scheme in CSS
-3. State to persist the theme
+I want to add dark mode support to this task manager. Here's what I need:
 
-Which files need changes?"
+1. Create a proper theme system using React Context
+2. Add a ThemeProvider component that wraps the app
+3. Store theme preference in localStorage so it persists
+4. Add a toggle button in the TaskManager header (with 🌙/☀️ icons)
+5. Create dark mode CSS with appropriate color variables
+6. The toggle should smoothly switch between light and dark themes
+
+Use the existing useLocalStorage hook if helpful for persistence.
+Make all necessary changes across the codebase.
 ```
 
-#### Step 2: Add State (4 min)
-**Use:** 💬 Chat then 👻 Autocomplete
+#### Step 3: Watch Agent Plan & Execute (7 min)
 
-First, ask Copilot about the existing localStorage pattern:
+**Observe Agent:**
+- Analyzes the codebase structure
+- Plans a proper architecture (likely ThemeContext and ThemeProvider)
+- Creates new components/hooks as needed
+- Updates existing components to use the theme
+- Adds CSS for dark mode
+- May suggest improvements to the approach
+
+**Your job:**
+- Read Agent's explanations
+- Review each file change
+- Accept or suggest adjustments
+- Look for how Agent structures the solution
+
+#### Step 4: Test the Dark Mode (2 min)
+
+1. Save all files Agent modified
+2. Check your browser
+3. Click the dark mode toggle button
+4. **Verify:**
+   - Theme switches smoothly
+   - Colors are appropriate for both modes
+   - Toggle state persists after page refresh
+   - Button shows correct icon (🌙 for dark, ☀️ for light)
+
+#### Step 5: Review Agent's Approach (2 min)
+
+Ask Agent follow-up questions:
 ```
-"@workspace How are tasks persisted to localStorage in this app?
-I want to add dark mode state that also persists."
+"Why did you use a Context Provider for this instead of just component state?"
 ```
 
-**Observe:** Copilot should mention the `useLocalStorage` hook!
+Or:
+```
+"Could you add a transition animation to make the theme switch smoother?"
+```
 
-Now add the state:
-1. Open `src/components/TaskManager.jsx`
-2. First, add the import at the top of the file (around line 2, after `useTasks`):
-   - Type: `import { useLocalStorage } from '../hooks/useLocalStorage';`
-   - Or let Copilot suggest it when you start using the hook below
-3. Find the `TaskManager` component (search for `export default function TaskManager`)
-4. Look for the `useState` declarations near the top of the component body
-5. Click at the end of the last `useState` declaration to position your cursor
-6. Press Enter to create a new line
-7. Type a comment: `// Dark mode state using useLocalStorage hook`
-8. Press Enter and start typing: `const [darkMode, setDarkMode] = useLocalStorage(`
-9. Let Copilot suggest the rest (key and default value, e.g., `'darkMode', false`)
-
-**Key Learning:** Always check if the codebase already has a pattern you can reuse! Using `useLocalStorage` follows the existing conventions.
-
-#### Step 3: Add Handler and Toggle (4 min)
-**Use:** 👻 Autocomplete
-
-First, create the handler function:
-1. In `src/components/TaskManager.jsx`, find the other handler functions (like `handleDeleteTask`)
-2. After the last handler, add a new line
-3. Type: `// Toggle dark mode`
-4. Press Enter and start typing: `const handleDarkModeToggle = (`
-5. Let Copilot suggest the implementation (should toggle the `darkMode` state)
-
-Then add the toggle button:
-6. Search for the `{/* Header */}` comment in the JSX
-7. Find the `header-actions` div with existing buttons
-8. Add a new button using Autocomplete:
-   - Type: `<button onClick={handleDarkModeToggle`
-   - Let Copilot suggest the rest (button content like 🌙/☀️ icons)
-
-**Key Learning:** Following existing patterns (handler functions) makes code more maintainable!
-
-#### Step 4: Update CSS (3 min)
-**Use:** ✏️ Inline Chat
-
-1. Open `src/App.css`
-2. Add after `:root` variables
-3. Type: `/* Dark mode colors */`
-4. Or use Inline Chat: `"Add dark mode CSS variables using [data-theme='dark']"`
+**Key Learning:** Agent Mode excels at features that need architectural planning. It can design proper patterns (like Context for theme), not just write individual functions. But you still review and guide the implementation!
 
 ---
 
