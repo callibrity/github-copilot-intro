@@ -81,9 +81,9 @@
 }
 
 .btn-icon.sort-direction:hover {
-  background: var(--color-primary-darker);
-  border-color: var(--color-primary-darker);
-  color: white;
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-darker);
 }
 
 /* List Content */
