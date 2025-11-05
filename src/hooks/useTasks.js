@@ -26,7 +26,7 @@ const INITIAL_TASKS = [
   {
     id: '2',
     title: 'Review pull requests',
-    description: 'Review and approve pending PRs from the team',
+    description: 'Check and approve pending PRs from the team',
     priority: 'medium',
     category: 'Work',
     status: 'todo',
