@@ -526,63 +526,74 @@ The Task Manager has **3 intentional bugs**. Find and fix them using different C
 
 ---
 
-### Bug #1: The Missing Task Bug
+### Bug #1: The Case-Sensitive Search Bug
 
-**Symptom:** When you create a new task, it doesn't appear in the UI until you refresh the page
+**Symptom:** Searching for "review" doesn't find "Review pull requests" - search only works with exact case matches
 
-**Copilot Mode:** 💬 **Chat Mode with @workspace** (multi-file investigation)
+**Copilot Mode:** 💬 **Chat** + ✏️ **Inline Chat** + 👻 **Autocomplete**
 
-#### Step 1: Describe the Problem (2 min)
+#### Step 1: Reproduce the Bug (1 min)
+
+1. In the app, locate the search box at the top
+2. Type: `review` (lowercase)
+3. **Observe:** No results! But there's a task titled "Review pull requests"
+4. Try typing: `Review` (capital R)
+5. **Observe:** Now it shows up!
+
+**The bug:** Search is case-sensitive when it shouldn't be.
+
+#### Step 2: Ask Copilot About the Issue (2 min)
 **Use:** 💬 Chat Mode
 
-Open Copilot Chat (Ctrl/Cmd+Shift+I) and describe what you're seeing:
+Open Copilot Chat (Ctrl/Cmd+Shift+I):
 
 ```
-"I have a bug where new tasks don't appear in the UI immediately after I create them.
-They only show up after I refresh the page. What could cause this?"
+"The search feature in my task manager is case-sensitive.
+If I search for 'review' it doesn't find 'Review pull requests'.
+What causes this and how do I make search case-insensitive?"
 ```
 
-**Observe:** Copilot will suggest common causes related to state updates in React.
+**Observe:** Copilot should mention using `.toLowerCase()` for case-insensitive comparisons.
 
-Follow-up question:
+#### Step 3: Find the Search Code (2 min)
+**Use:** 💬 Chat with @workspace
+
 ```
-"@workspace Trace the data flow when I submit the TaskForm.
-How does the new task get added to the tasks array?"
-```
-
-**Key Learning:** Using `@workspace` helps Copilot search across multiple files to understand the full data flow.
-
-#### Step 2: Locate the Problem (3 min)
-**Use:** 💬 Chat Mode
-
-Based on Copilot's suggestions, ask:
-```
-"Show me the addTask function in useTasks.js. Is there a state update issue?"
+"@workspace Where is the search/filter function that searches task titles?"
 ```
 
-Or navigate to `src/hooks/useTasks.js` and find the `addTask` function yourself (around line 114).
+**Observe:** Copilot should point you to `filterBySearch` in `taskFilters.js`
 
-#### Step 3: Investigate with Inline Chat (3 min)
-**Use:** ✏️ Inline Chat
+#### Step 4: Examine the Function (2 min)
+**Use:** ✏️ Inline Chat with /explain
 
-1. Open `src/hooks/useTasks.js`
-2. Highlight the entire `addTask` function (lines 114-127)
+1. Open `src/utils/taskFilters.js`
+2. Find and highlight the `filterBySearch` function (lines 33-43)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"Why isn't this triggering a re-render in React?"`
+4. Type: `/explain`
 
-**Observe:** Copilot should identify the array mutation issue!
+**Observe:** Read Copilot's explanation and look at the code. Notice:
+- Line 36: `lowerQuery` converts search to lowercase ✅
+- Line 40: `descriptionMatch` uses `.toLowerCase()` ✅
+- Line 39: `titleMatch` is missing `.toLowerCase()` ❌
 
-#### Step 4: Fix It (2 min)
-**Use:** ✏️ Inline Chat
+#### Step 5: Fix Using Autocomplete (2 min)
+**Use:** 👻 Autocomplete Mode
 
-With the `addTask` function still highlighted:
-1. Press **Ctrl/Cmd+I**
-2. Ask: `"Fix this to properly update React state"`
-3. Review and accept the fix
+1. On line 39, click right after `task.title?`
+2. Start typing: `.toLower`
+3. **Watch:** Copilot suggests `.toLowerCase()` (press Tab to accept)
+4. Save the file
 
-**Test:** Create a new task - it should appear immediately! ✅
+**Pattern Recognition:** Copilot saw that line 40 uses `.toLowerCase()` and suggested the same pattern!
 
-**Key Takeaway:** Array mutations don't trigger React re-renders. Always create new array references.
+#### Step 6: Test the Fix (1 min)
+
+1. In the app, type: `review` (lowercase)
+2. **Success:** "Review pull requests" now shows up! ✅
+3. Try other searches with different cases
+
+**Key Takeaway:** Autocomplete learns from patterns in your code. Look for similar lines to follow the same approach!
 
 ---
 
@@ -703,6 +714,73 @@ Test that the sort handles:
 - Mix of past, today, and future dates
 
 **Key Takeaway:** Use `#file:` and context awareness to leverage existing code patterns. Don't reinvent the wheel!
+
+---
+
+## 🚀 Bonus Challenge: Agent Mode Debugging (Optional - 10 min)
+
+**Goal:** Watch Agent Mode autonomously find and fix all bugs
+
+You've just fixed three bugs manually using different Copilot modes. Now let's see how Agent Mode handles multi-bug debugging!
+
+### Setup (2 min)
+
+**Option A: Use a teammate's code**
+- Pair up with someone who hasn't fixed the bugs yet
+- Or clone a fresh copy of the repository
+
+**Option B: Reset your changes**
+```bash
+git stash  # Save your fixes
+# Or: git reset --hard origin/main
+```
+
+### Challenge (5 min)
+
+1. Open Copilot Chat (**Ctrl/Cmd+Shift+I**)
+2. Click the dropdown and select **Agent**
+3. Give Agent this task:
+
+```
+I have three bugs in my task manager application:
+
+1. Search is case-sensitive - searching "review" doesn't find "Review pull requests"
+2. Tasks due TODAY show as "Overdue!" when they shouldn't be
+3. When sorting by due date, tasks with no due date appear first instead of last
+
+Please find and fix all three bugs. For each bug:
+- Locate the buggy code
+- Explain what's wrong
+- Fix it
+- Verify the fix works
+
+Work through them one at a time.
+```
+
+### Watch & Learn (3 min)
+
+**Observe how Agent:**
+- Plans its approach
+- Searches for relevant files
+- Analyzes code
+- Makes fixes
+- May run terminal commands or tests
+
+**Your job:**
+- Read Agent's explanations
+- Review proposed changes carefully
+- Accept or reject each change
+- Test the fixes in your browser
+
+### Compare Approaches
+
+**Questions to consider:**
+- Did Agent find the bugs faster than you did manually?
+- Did Agent's fixes match yours?
+- What did Agent explain that you might have missed?
+- Were there any incorrect fixes you had to reject?
+
+**Key Learning:** Agent Mode can handle complex, multi-bug debugging autonomously, but you're still the developer who verifies and approves the work!
 
 ---
 

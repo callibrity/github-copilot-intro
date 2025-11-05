@@ -36,7 +36,7 @@ export function filterBySearch(tasks, query) {
   const lowerQuery = query.toLowerCase().trim();
 
   return tasks.filter(task => {
-    const titleMatch = task.title?.toLowerCase().includes(lowerQuery);
+    const titleMatch = task.title?.includes(lowerQuery);
     const descriptionMatch = task.description?.toLowerCase().includes(lowerQuery);
     return titleMatch || descriptionMatch;
   });

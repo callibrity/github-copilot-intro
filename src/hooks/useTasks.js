@@ -138,12 +138,9 @@ export function useTasks() {
       status: taskData.status || 'todo'
     };
 
-    // Add the new task and save to localStorage
-    tasks.push(newTask);
-    window.localStorage.setItem('tasks', JSON.stringify(tasks));
-
+    setTasks(prevTasks => [...prevTasks, newTask]);
     return newTask;
-  }, [tasks]);
+  }, [setTasks]);
 
   /**
    * Update an existing task
