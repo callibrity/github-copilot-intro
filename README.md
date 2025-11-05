@@ -244,11 +244,13 @@ to the FilterControls component. What's the best approach?"
 
 1. Open `src/components/TaskManager.jsx`
 2. Find the `FilterControls` component
-3. Highlight the entire function
+3. Highlight the entire function (not just the JSX)
 4. Press **Ctrl/Cmd+I**
 5. Ask: `"Add checkboxes for filtering by priority (high, medium, low)"`
 
-#### Step 3: Write Handler (3 min)
+**Note:** Copilot may generate both UI and handler logic. Check if it created `handlePriorityChange` or similar - if so, you can skip Step 3!
+
+#### Step 3: Write Handler (3 min) - *Skip if generated in Step 2*
 **Use:** 👻 Autocomplete
 
 1. In `TaskManager.jsx`, add a new line
