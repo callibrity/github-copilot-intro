@@ -427,14 +427,24 @@ Now add the state:
 
 **Key Learning:** Always check if the codebase already has a pattern you can reuse! Using `useLocalStorage` follows the existing conventions.
 
-#### Step 3: Add Toggle (3 min)
+#### Step 3: Add Handler and Toggle (4 min)
 **Use:** 👻 Autocomplete
 
-1. In `src/components/TaskManager.jsx`, search for the `{/* Header */}` comment in the JSX
-2. Find a good spot in the header (perhaps in the `header-actions` div alongside existing buttons)
-3. Type: `// Dark mode toggle button`
-4. Press Enter and let Copilot suggest implementation
-5. Accept the suggestion and adjust placement as needed
+First, create the handler function:
+1. In `src/components/TaskManager.jsx`, find the other handler functions (like `handleDeleteTask`)
+2. After the last handler, add a new line
+3. Type: `// Toggle dark mode`
+4. Press Enter and start typing: `const handleDarkModeToggle = (`
+5. Let Copilot suggest the implementation (should toggle the `darkMode` state)
+
+Then add the toggle button:
+6. Search for the `{/* Header */}` comment in the JSX
+7. Find the `header-actions` div with existing buttons
+8. Add a new button using Autocomplete:
+   - Type: `<button onClick={handleDarkModeToggle`
+   - Let Copilot suggest the rest (button content like 🌙/☀️ icons)
+
+**Key Learning:** Following existing patterns (handler functions) makes code more maintainable!
 
 #### Step 4: Update CSS (3 min)
 **Use:** ✏️ Inline Chat
