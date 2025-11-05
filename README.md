@@ -401,8 +401,8 @@ Which files need changes?"
 **Use:** 👻 Autocomplete or ✏️ Inline Chat
 
 1. Open `src/components/TaskManager.jsx`
-2. Find the existing `useState` declarations at the top of the component (around line 21)
-3. Click at the end of the last state declaration to position your cursor
+2. Scroll down to find the `// UI state` comment and the `useState` declarations (around line 111)
+3. Click at the end of the last `useState` declaration (after the `filters` state)
 4. Press Enter to create a new line
 5. Type a comment: `// Dark mode state with localStorage`
 6. Press Enter and let Copilot suggest the useState hook with localStorage
