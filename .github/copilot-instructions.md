@@ -21,12 +21,7 @@ This is a React-based task manager application built for a GitHub Copilot worksh
 
 ## Important Note
 
-**There are intentional bugs in this codebase** for the debugging exercise:
-1. `useLocalStorage.js` - Missing dependency in useEffect
-2. `dateHelpers.js` - `isOverdue` function has timestamp comparison bug
-3. `taskFilters.js` - `sortByDueDate` uses string comparison instead of dates
-
-When making changes, preserve these bugs unless specifically asked to fix them.
+**This codebase contains intentional bugs** for the debugging exercise in Exercise 3 of the workshop. When making changes to the codebase, be careful not to accidentally fix these bugs unless the user explicitly asks you to debug the application.
 
 ## Fun Instruction
 
