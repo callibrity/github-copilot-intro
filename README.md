@@ -398,12 +398,15 @@ Which files need changes?"
 ```
 
 #### Step 2: Add State (4 min)
-**Use:** ✏️ Inline Chat
+**Use:** 👻 Autocomplete or ✏️ Inline Chat
 
 1. Open `src/components/TaskManager.jsx`
-2. Highlight state declarations at top
-3. Press **Ctrl/Cmd+I**
-4. Ask: `"Add dark mode state with localStorage persistence"`
+2. Find the existing `useState` declarations at the top of the component (around line 21)
+3. Click at the end of the last state declaration to position your cursor
+4. Press Enter to create a new line
+5. Type a comment: `// Dark mode state with localStorage`
+6. Press Enter and let Copilot suggest the useState hook with localStorage
+7. Or use **Ctrl/Cmd+I** and ask: `"Add a useState hook for dark mode that persists to localStorage"`
 
 #### Step 3: Add Toggle (3 min)
 **Use:** 👻 Autocomplete
