@@ -203,17 +203,11 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 "@workspace Trace the complete data flow when a user clicks the complete checkbox on a task. Show me all the functions involved from the UI click to the state update."
 ```
 
-**🏀 Did you notice?** Copilot's responses start with "Boomshakalaka! " - this project has custom instructions!
+**🏀 Did you notice?** Copilot's responses start with "Boomshakalaka! "
 
-**What's happening:**
-This workshop includes a `.github/copilot-instructions.md` file that tells Copilot to prefix all responses with "Boomshakalaka! " - it's a fun way to demonstrate that Copilot reads and follows project-specific instructions.
+This workshop includes a `.github/copilot-instructions.md` file that tells Copilot to prefix all responses with "Boomshakalaka! " - it's a fun way to demonstrate that Copilot reads and follows project-specific instructions. In real projects, you'd use this file to set coding standards and conventions.
 
-**Real-world use:** In actual projects, you'd use this file to set coding standards like:
-- "Always use TypeScript strict mode"
-- "Prefer functional components over class components"
-- "Follow the company's error handling patterns"
-
-**Later in Exercise 2:** You'll learn how to customize these instructions yourself!
+**Feel free to modify `.github/copilot-instructions.md` to turn that off if you'd like, or just roll with it and have a little fun!**
 
 ---
 
@@ -440,8 +434,6 @@ Which files need changes?"
 
 **Note:** Requires VS Code 1.99+. If Agent mode isn't available, use @workspace with Edit mode instead.
 
-**🏀 Remember the "Boomshakalaka!" responses?** Agent Mode also reads the `.github/copilot-instructions.md` file, so you'll see it here too! Later you'll learn how to customize these instructions.
-
 #### Step 1: Activate Agent Mode (1 min)
 
 1. Open Copilot Chat (**Ctrl/Cmd+Shift+I**)
@@ -510,29 +502,6 @@ Or:
 ```
 
 Agent will diagnose issues and fix them!
-
-#### Step 6 (Optional): Customize Copilot Instructions (2 min)
-
-**Learn to customize Copilot behavior for your project:**
-
-Remember that `.github/copilot-instructions.md` file causing the "Boomshakalaka!" responses? Now let's customize it!
-
-1. Open `.github/copilot-instructions.md`
-2. Find the "Fun Instruction" section
-3. Delete or comment out the Boomshakalaka line
-4. Save the file
-5. Ask Copilot (Chat or Agent) another question
-6. Notice it no longer says "Boomshakalaka! "
-
-**Try adding your own instructions:**
-- "Always use double quotes for strings"
-- "Prefer async/await over .then()"
-- "Add JSDoc comments to all functions"
-- "Follow functional programming patterns"
-
-Save the file and watch Copilot follow your rules!
-
-**Key Learning:** The `.github/copilot-instructions.md` file controls how Copilot behaves across ALL modes in your project. Use it to enforce coding standards, project conventions, or team preferences!
 
 ---
 
