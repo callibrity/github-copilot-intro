@@ -298,7 +298,15 @@ I need to handle edge cases like only 'from' or only 'to' being set."
 4. Let Copilot suggest the implementation
 5. Verify it updates the filters state with date range values
 
-**Tip:** The `applyFilters` function in `taskFilters.js` may need updating to handle date ranges. Check if Copilot suggests this or use Inline Chat to add date range logic.
+#### Step 4: Update Filter Logic (4 min)
+**Use:** ✏️ Inline Chat with file context
+
+1. Open `src/utils/taskFilters.js`
+2. Find and highlight the `applyFilters` function
+3. Press **Ctrl/Cmd+I**
+4. Ask: `"Update this to handle date range filtering. The FilterControls in #file:TaskManager.jsx now passes dateFrom and dateTo in the filters object. Filter tasks where dueDate falls within this range, handling null dates."`
+
+**Key Learning:** Using `#file:` in your prompt lets Copilot see your changes in other files! This helps it understand the full context and integrate your changes correctly.
 
 ---
 
