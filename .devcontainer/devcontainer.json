@@ -17,7 +17,8 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "formulahendry.auto-close-tag",
-        "formulahendry.auto-rename-tag"
+        "formulahendry.auto-rename-tag",
+        "vitest.explorer"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -73,7 +74,7 @@
 
   "postCreateCommand": "npm install",
 
-  "postStartCommand": "echo '\n🤖 AI Workshop Environment Ready!\n\n✅ GitHub Copilot is ENABLED\n✅ All dependencies installed\n✅ Ready to code!\n\n🚀 Start the app: npm run dev\n💬 Open Copilot Chat: Ctrl+Shift+I (Cmd+Shift+I on Mac)\n✨ Inline suggestions will appear as you type\n\n📚 See README.md for workshop exercises.\n'",
+  "postStartCommand": "echo '\n🤖 AI Workshop Environment Ready!\n\n✅ GitHub Copilot is ENABLED\n✅ All dependencies installed\n✅ Vitest testing configured\n✅ Ready to code!\n\n🚀 Start the app: npm run dev\n🧪 Run tests: npm test\n💬 Open Copilot Chat: Ctrl+Shift+I (Cmd+Shift+I on Mac)\n✨ Inline suggestions will appear as you type\n\n📚 See README.md for workshop exercises.\n'",
 
   "remoteUser": "node",
 
