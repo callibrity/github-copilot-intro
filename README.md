@@ -241,7 +241,9 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 5. Type: `/fix`
 6. Copilot will add the missing imports!
 
-**Try it:** Run `npm test` to execute all tests and verify they pass!
+**Try it:** Run `npm test` to execute all tests!
+
+**Note:** The `isOverdue` tests might fail! That's because this function has intentional bugs (you'll fix them in Exercise 3). This shows how tests can catch bugs in your code.
 
 **Key Learning:** AI-generated code isn't always perfect on the first try. Using `/fix` after `/tests` is a common workflow pattern!
 
