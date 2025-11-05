@@ -629,17 +629,19 @@ With the function still highlighted:
 **Test:** Tasks due today should NO LONGER show "Overdue!" ✅
 
 #### Step 5 (Optional): Generate Tests (3 min)
-**Use:** ✏️ Inline Chat with /tests
+**Use:** Right-click context menu
 
 Now that the function works, prevent future bugs:
 1. Highlight the fixed `isOverdue` function
-2. Press **Ctrl/Cmd+I**
-3. Type: `/tests`
-4. Review the test cases Copilot generates
+2. Right-click on the selected code
+3. Choose **"Copilot" → "Generate Tests"**
+4. Review the test cases Copilot generates (should be scoped to just `isOverdue`)
 5. Add them to `src/utils/dateHelpers.test.js`
 6. Run `npm test` - all tests should pass! ✅
 
-**Key Takeaway:** The `/explain` → analyze → `/fix` workflow is powerful for understanding and fixing bugs.
+**Tip:** You can also type `/tests` in Inline Chat (Ctrl/Cmd+I), but the context menu often provides better scoping to your selected code.
+
+**Key Takeaway:** The `/explain` → analyze → `/fix` → generate tests workflow helps prevent bugs from coming back!
 
 ---
 
