@@ -223,13 +223,17 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 5. Review the JSDoc comments Copilot adds!
 
 **Task 3: Generate tests**
-1. Stay in `src/utils/dateHelpers.js`
-2. Highlight the `isOverdue` function (lines 66-75)
-3. Press **Ctrl/Cmd+I**
-4. Type: `/tests`
-5. Review the test cases Copilot generates
+1. First, open `src/utils/dateHelpers.test.js` to see existing tests
+2. Notice the test structure and patterns
+3. Now open `src/utils/dateHelpers.js`
+4. Highlight the `isOverdue` function (lines 66-75)
+5. Press **Ctrl/Cmd+I**
+6. Type: `/tests`
+7. Review the test cases Copilot generates
 
-**Key Learning:** You can preview tests without actually creating the file!
+**Observe:** Copilot matches the style of existing tests! It learned from the codebase.
+
+**Try it:** You can accept the tests and run `npm test` to execute them!
 
 **Task 4: Understand React patterns**
 1. Open `src/components/TaskManager.jsx`
@@ -715,16 +719,25 @@ github-copilot-intro/
 │   │   └── useLocalStorage.js  # Persistence (⚠️ has bug)
 │   ├── utils/
 │   │   ├── taskFilters.js      # Filtering/sorting (⚠️ has bug)
-│   │   └── dateHelpers.js      # Date utilities (⚠️ has bug)
+│   │   ├── dateHelpers.js      # Date utilities (⚠️ has bug)
+│   │   └── dateHelpers.test.js # Example tests (Vitest)
 │   └── styles/
 │       ├── TaskManager.css
 │       ├── TaskBoard.css
 │       ├── TaskList.css
 │       ├── TaskCard.css
 │       └── TaskForm.css
+├── vitest.config.js             # Test configuration
 ├── README.md                    # This file
 └── package.json
 ```
+
+### 🧪 Testing Setup
+
+This project includes Vitest for testing:
+- **Run tests:** `npm test`
+- **Example tests:** See `src/utils/dateHelpers.test.js`
+- **Vitest extension:** VS Code may prompt to install the Vitest extension - recommended for in-editor test running!
 
 ---
 
