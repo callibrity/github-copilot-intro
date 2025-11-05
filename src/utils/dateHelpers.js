@@ -19,11 +19,6 @@ export function formatDate(date) {
   return dateObj.toLocaleDateString('en-US', options);
 }
 
-/**
- * Format date to ISO string for input fields
- * @param {Date|string} date - Date to format
- * @returns {string} ISO date string (YYYY-MM-DD)
- */
 export function formatDateForInput(date) {
   if (!date) return '';
 

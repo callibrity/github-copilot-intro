@@ -217,14 +217,14 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 
 **Task 2: Generate documentation**
 1. Open `src/utils/dateHelpers.js`
-2. Highlight the `formatDateForInput` function (lines 18-31)
+2. Highlight the `formatDateForInput` function (lines 22-30)
 3. Press **Ctrl/Cmd+I**
 4. Type: `/doc`
 5. Review the JSDoc comments Copilot adds!
 
 **Task 3: Generate tests**
 1. Stay in `src/utils/dateHelpers.js`
-2. Highlight the `isOverdue` function (lines 55-64)
+2. Highlight the `isOverdue` function (lines 66-75)
 3. Press **Ctrl/Cmd+I**
 4. Type: `/tests`
 5. Review the test cases Copilot generates
