@@ -205,9 +205,9 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 
 **🏀 Did you notice?** Copilot's responses start with "Boomshakalaka! "
 
-This workshop includes a `.github/copilot-instructions.md` file that tells Copilot to prefix all responses with "Boomshakalaka! " - it's a fun way to demonstrate that Copilot reads and follows project-specific instructions. In real projects, you'd use this file to set coding standards and conventions.
+This workshop includes a `.github/copilot-instructions.md` file that tells Copilot to prefix all responses with "Boomshakalaka! " (yes, like NBA Jam! 🏀) - it's a fun way to demonstrate that Copilot reads and follows project-specific instructions. In real projects, you'd use this file to set coding standards and conventions.
 
-**Feel free to modify `.github/copilot-instructions.md` to turn that off if you'd like, or just roll with it and have a little fun!**
+**Feel free to modify `.github/copilot-instructions.md` to turn that off, change it to your own catchphrase ("He's on fire!" perhaps?), or just roll with it and have a little fun!**
 
 ---
 
