@@ -167,6 +167,8 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 "How is state managed in this app?"
 
 "What React patterns are used here?"
+
+"@workspace Trace the complete data flow when a user clicks the complete checkbox on a task. Show me all the functions involved from the UI click to the state update."
 ```
 
 ### Activity 1B: Understanding Specific Code (7 min)
@@ -190,11 +192,11 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 3. Press **Ctrl/Cmd+I**
 4. Ask: `"What props does this component accept?"`
 
-**Task 4: Trace data flow**
+**Task 4: Understand React event handler patterns**
 1. Open `src/components/TaskManager.jsx`
-2. Highlight `handleToggleComplete`
+2. Highlight lines 156-166 (the three handler functions: handleDeleteTask, handleToggleComplete, and handleStatusChange)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"Trace what happens when this is called"`
+4. Ask: `"Why are these wrapped in separate functions instead of calling the hook functions directly?"`
 
 ### Activity 1C: Explore with Autocomplete (3 min)
 **Use:** 👻 Autocomplete Mode
