@@ -240,7 +240,9 @@ This workshop includes a `.github/copilot-instructions.md` file that tells Copil
 6. Type: `/tests`
 7. Review the test cases Copilot generates
 
-**Observe:** Copilot matches the style of existing tests! It learned from the codebase.
+**Observe:**
+- Copilot matches the style of existing tests! It learned from the codebase.
+- Copilot may generate tests for **multiple functions** (not just `compareDates`). It sees the file context and creates comprehensive tests. That's helpful! You can keep all the tests or just use the ones you need.
 
 **If imports are missing** (common issue):
 1. Accept the generated tests and add them to `dateHelpers.test.js`
