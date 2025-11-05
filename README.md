@@ -308,6 +308,21 @@ I need to handle edge cases like only 'from' or only 'to' being set."
 
 **Key Learning:** Using `#file:` in your prompt lets Copilot see your changes in other files! This helps it understand the full context and integrate your changes correctly.
 
+#### Step 5: Test & Debug (3 min)
+
+1. Save and test the date filters in your browser
+2. Try changing the dates - do tasks filter correctly?
+
+**If filtering doesn't work:**
+
+3. Open `src/components/TaskManager.jsx` and check the date input field names in `handleDateChange`
+4. Open `src/utils/taskFilters.js` and check what property names the filter logic is looking for
+5. **Do they match?** (Common bug: `fromDate`/`toDate` vs `dateFrom`/`dateTo`)
+6. If they don't match, use **Inline Chat** on either location:
+   - Ask: `"The field names don't match. Fix this to use consistent naming: dateFrom and dateTo"`
+
+**Key Learning:** Always test AI-generated code! Copilot can create working code for each part, but sometimes naming inconsistencies slip through between files. This is why verification is critical.
+
 ---
 
 ### Feature C: Dark Mode Toggle
