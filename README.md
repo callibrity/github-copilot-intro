@@ -379,44 +379,82 @@ Which files need changes?"
 
 ---
 
-### Feature D: Bulk Operations
+### Feature D: Bulk Operations (Agent Mode Showcase!)
 
-#### Step 1: Research (3 min)
-**Use:** 💬 Chat
+**Goal:** Watch Agent Mode autonomously build a complex multi-file feature
 
-```
-"How should I implement bulk selection and delete in React?
-I need checkboxes on TaskCards for multi-select."
-```
+**Note:** Requires VS Code 1.99+. If Agent mode isn't available, use @workspace with Edit mode instead.
 
-#### Step 2: Add State (4 min)
-**Use:** ✏️ Inline Chat
+#### Step 1: Activate Agent Mode (1 min)
 
-Highlight state in TaskManager, ask:
-```
-"Add state for tracking selected task IDs using a Set"
-```
+1. Open Copilot Chat (**Ctrl/Cmd+Shift+I**)
+2. Click the dropdown at the top (shows "Ask" by default)
+3. Select **Agent**
+4. You should see "Agent" displayed in the chat header
 
-#### Step 3: Update TaskCard (4 min)
-**Use:** 👻 Autocomplete + ✏️ Inline Chat
+#### Step 2: Give Agent the Complete Task (2 min)
+**Use:** 🚀 Agent Mode
 
-1. Open `TaskCard.jsx`
-2. Add props: `isSelected, onSelect`
-3. Use Inline Chat: `"Add selection checkbox separate from complete checkbox"`
-
-#### Step 4: Bulk Actions Bar (5 min)
-**Use:** 🤖 @workspace
+Type this complete request:
 
 ```
-"@workspace Create a BulkActionsBar component that appears when tasks
-are selected, showing:
-- Count of selected tasks
-- Delete button
-- Mark complete button
-- Clear selection button
+I want to add bulk operations to the task manager. Here's what I need:
 
-Add it to TaskManager above the board/list view."
+1. Add a selection checkbox to each TaskCard (separate from the complete checkbox)
+2. Track selected task IDs in TaskManager state (use a Set)
+3. Create a new BulkActionsBar component that appears when tasks are selected
+4. The BulkActionsBar should show:
+   - Count of selected tasks ("3 tasks selected")
+   - "Delete Selected" button (with confirmation dialog)
+   - "Mark Complete" button
+   - "Clear Selection" button
+5. Add the BulkActionsBar to TaskManager above the board/list view
+6. Style it to match the existing design
+
+Make all necessary changes across the codebase.
 ```
+
+Press Enter and watch Agent Mode work!
+
+#### Step 3: Watch Agent Work (5-10 min)
+
+**What you'll see:**
+- Agent analyzes your codebase
+- Plans the work needed
+- Creates/modifies multiple files
+- May run terminal commands
+- Shows progress as it works
+
+**Your job:** Review what it's doing. Read the proposed changes.
+
+#### Step 4: Apply Changes & Test (5 min)
+
+1. Review all proposed changes
+2. Accept the changes Agent suggests
+3. Save files and check your browser
+4. Test bulk operations:
+   - Select multiple tasks
+   - Try bulk delete (should confirm)
+   - Try mark complete
+   - Clear selection
+
+#### Step 5: Iterate if Needed (3 min)
+
+**If something doesn't work or needs adjustment:**
+
+Continue the conversation with Agent:
+```
+"The BulkActionsBar doesn't appear when tasks are selected. What's wrong?"
+```
+
+Or:
+```
+"Make the BulkActionsBar sticky at the top and add better styling"
+```
+
+Agent will diagnose issues and fix them!
+
+**Key Learning:** Agent mode handles complex, multi-file features autonomously! You give it a high-level goal, and it plans and executes the work. But you're still the developer - always review the code, test thoroughly, and iterate as needed.
 
 ---
 
