@@ -497,7 +497,24 @@ Or:
 
 Agent will diagnose issues and fix them!
 
-**Key Learning:** Agent mode handles complex, multi-file features autonomously! You give it a high-level goal, and it plans and executes the work. But you're still the developer - always review the code, test thoroughly, and iterate as needed.
+#### Step 6 (Optional): Turn Off the Boomshakalaka (2 min)
+
+**Learn to customize Agent Mode behavior:**
+
+1. Open `.github/copilot-instructions.md`
+2. Find the "Fun Instruction" section
+3. Delete or comment out the Boomshakalaka line
+4. Save the file
+5. Ask Agent Mode another question
+6. Notice it no longer says "Boomshakalaka! "
+
+**Key Learning:** The `.github/copilot-instructions.md` file controls how Agent Mode behaves in your project. Edit it to customize coding standards, preferences, or project-specific rules!
+
+**Try it:** Add your own instruction like "Always use double quotes for strings" or "Prefer async/await over .then()" and see Agent follow it!
+
+---
+
+**Summary:** Agent mode handles complex, multi-file features autonomously! You give it a high-level goal, and it plans and executes the work. But you're still the developer - always review the code, test thoroughly, and iterate as needed.
 
 ---
 
