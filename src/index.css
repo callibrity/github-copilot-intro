@@ -14,7 +14,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #D9AFD0 0%, #C793BC 50%, #89517e 100%);
   min-height: 100vh;
   padding: 20px;
   margin: 0;
@@ -51,7 +51,7 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #C793BC;
 }
 
 code {
