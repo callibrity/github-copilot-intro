@@ -430,9 +430,11 @@ Now add the state:
 #### Step 3: Add Toggle (3 min)
 **Use:** 👻 Autocomplete
 
-1. In header section
-2. Type: `// Dark mode toggle button`
-3. Let Copilot suggest implementation
+1. In `src/components/TaskManager.jsx`, search for the `{/* Header */}` comment in the JSX
+2. Find a good spot in the header (perhaps in the `header-actions` div alongside existing buttons)
+3. Type: `// Dark mode toggle button`
+4. Press Enter and let Copilot suggest implementation
+5. Accept the suggestion and adjust placement as needed
 
 #### Step 4: Update CSS (3 min)
 **Use:** ✏️ Inline Chat
