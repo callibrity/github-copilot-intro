@@ -46,16 +46,17 @@ npm run dev
 
 This workshop teaches you to use GitHub Copilot effectively through three hands-on exercises:
 
-1. **Understanding Code** (15 min) - Explore the codebase using Copilot's four modes
-2. **Adding Features** (25 min) - Build new functionality with AI assistance
-3. **Debugging** (20 min) - Find and fix bugs using Copilot
+1. **Understanding Code** (15 min) - Use slash commands, @workspace, and inline chat to explore the codebase
+2. **Adding Features** (25 min) - Build filters, date pickers, and use Agent Mode for complex features
+3. **Debugging** (20 min) - Find and fix bugs using Copilot's various modes
 
 By the end, you'll know:
-- ✅ When to use each of Copilot's four interaction modes
-- ✅ How to write effective prompts
-- ✅ How to iterate on AI suggestions
-- ✅ How to verify AI-generated code
-- ✅ Real-world workflows for daily development
+- ✅ All four Copilot modes: Autocomplete, Chat, Inline Chat, and Agent Mode
+- ✅ Slash commands like `/explain`, `/doc`, `/tests`, and `/fix`
+- ✅ Context features: `@workspace`, `#file:`, `#selection`
+- ✅ How to iterate and debug AI-generated code
+- ✅ Real-world workflows like `/tests` → `/fix` → verify
+- ✅ When to let Agent Mode autonomously handle complex tasks
 
 ---
 
