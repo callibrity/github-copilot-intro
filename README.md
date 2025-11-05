@@ -250,9 +250,13 @@ This workshop includes a `.github/copilot-instructions.md` file that tells Copil
 
 **Task 4: Understand React patterns**
 1. Open `src/components/TaskManager.jsx`
-2. Highlight lines 156-166 (the three handler functions: handleDeleteTask, handleToggleComplete, and handleStatusChange)
-3. Press **Ctrl/Cmd+I**
-4. Ask: `"Why are these wrapped in separate functions instead of calling the hook functions directly?"`
+2. Find the TaskManager component and locate these three handler functions (search for them):
+   - `handleDeleteTask`
+   - `handleToggleComplete`
+   - `handleStatusChange`
+3. Highlight all three functions together
+4. Press **Ctrl/Cmd+I**
+5. Ask: `"Why are these wrapped in separate functions instead of calling the hook functions directly?"`
 
 **This one uses a question instead of a slash command because we want to learn "why", not just generate code.**
 
@@ -401,12 +405,13 @@ Which files need changes?"
 **Use:** 👻 Autocomplete or ✏️ Inline Chat
 
 1. Open `src/components/TaskManager.jsx`
-2. Scroll down to find the `// UI state` comment and the `useState` declarations (around line 111)
-3. Click at the end of the last `useState` declaration (after the `filters` state)
-4. Press Enter to create a new line
-5. Type a comment: `// Dark mode state with localStorage`
-6. Press Enter and let Copilot suggest the useState hook with localStorage
-7. Or use **Ctrl/Cmd+I** and ask: `"Add a useState hook for dark mode that persists to localStorage"`
+2. Find the `TaskManager` component (search for `export default function TaskManager`)
+3. Look for the `useState` declarations near the top of the component body (after the `useTasks` hook call)
+4. Click at the end of the last `useState` declaration to position your cursor
+5. Press Enter to create a new line
+6. Type a comment: `// Dark mode state with localStorage`
+7. Press Enter and let Copilot suggest the useState hook with localStorage
+8. Or use **Ctrl/Cmd+I** and ask: `"Add a useState hook for dark mode that persists to localStorage"`
 
 #### Step 3: Add Toggle (3 min)
 **Use:** 👻 Autocomplete
