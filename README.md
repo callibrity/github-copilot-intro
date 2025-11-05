@@ -402,16 +402,30 @@ Which files need changes?"
 ```
 
 #### Step 2: Add State (4 min)
-**Use:** 👻 Autocomplete or ✏️ Inline Chat
+**Use:** 💬 Chat then 👻 Autocomplete
 
+First, ask Copilot about the existing localStorage pattern:
+```
+"@workspace How are tasks persisted to localStorage in this app?
+I want to add dark mode state that also persists."
+```
+
+**Observe:** Copilot should mention the `useLocalStorage` hook!
+
+Now add the state:
 1. Open `src/components/TaskManager.jsx`
-2. Find the `TaskManager` component (search for `export default function TaskManager`)
-3. Look for the `useState` declarations near the top of the component body (after the `useTasks` hook call)
-4. Click at the end of the last `useState` declaration to position your cursor
-5. Press Enter to create a new line
-6. Type a comment: `// Dark mode state with localStorage`
-7. Press Enter and let Copilot suggest the useState hook with localStorage
-8. Or use **Ctrl/Cmd+I** and ask: `"Add a useState hook for dark mode that persists to localStorage"`
+2. First, add the import at the top of the file (around line 2, after `useTasks`):
+   - Type: `import { useLocalStorage } from '../hooks/useLocalStorage';`
+   - Or let Copilot suggest it when you start using the hook below
+3. Find the `TaskManager` component (search for `export default function TaskManager`)
+4. Look for the `useState` declarations near the top of the component body
+5. Click at the end of the last `useState` declaration to position your cursor
+6. Press Enter to create a new line
+7. Type a comment: `// Dark mode state using useLocalStorage hook`
+8. Press Enter and start typing: `const [darkMode, setDarkMode] = useLocalStorage(`
+9. Let Copilot suggest the rest (key and default value, e.g., `'darkMode', false`)
+
+**Key Learning:** Always check if the codebase already has a pattern you can reuse! Using `useLocalStorage` follows the existing conventions.
 
 #### Step 3: Add Toggle (3 min)
 **Use:** 👻 Autocomplete
