@@ -81,8 +81,8 @@
 }
 
 .sort-direction:hover {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
   color: white;
 }
 
