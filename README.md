@@ -233,7 +233,17 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 
 **Observe:** Copilot matches the style of existing tests! It learned from the codebase.
 
-**Try it:** You can accept the tests and run `npm test` to execute them!
+**If imports are missing** (common issue):
+1. Accept the generated tests and add them to `dateHelpers.test.js`
+2. Notice red squiggly lines under missing imports
+3. Highlight the entire test block you just added
+4. Press **Ctrl/Cmd+I**
+5. Type: `/fix`
+6. Copilot will add the missing imports!
+
+**Try it:** Run `npm test` to execute all tests and verify they pass!
+
+**Key Learning:** AI-generated code isn't always perfect on the first try. Using `/fix` after `/tests` is a common workflow pattern!
 
 **Task 4: Understand React patterns**
 1. Open `src/components/TaskManager.jsx`
