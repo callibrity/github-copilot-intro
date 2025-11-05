@@ -197,32 +197,42 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 "@workspace Trace the complete data flow when a user clicks the complete checkbox on a task. Show me all the functions involved from the UI click to the state update."
 ```
 
-### Activity 1B: Understanding Specific Code (7 min)
+### Activity 1B: Working with Specific Code (7 min)
 **Use:** ✏️ Inline Chat Mode
 
-**Task 1: Understand the useTasks hook**
+**Task 1: Understand code (learn the shortcut!)**
 1. Open `src/hooks/useTasks.js`
 2. Highlight the entire `useTasks` function
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"Explain how this custom hook works"`
+4. Try **BOTH** approaches:
+   - Type: `/explain` ← Slash command shortcut!
+   - Or ask: `"Explain how this custom hook works"`
 
-**Task 2: Understand filtering**
-1. Open `src/utils/taskFilters.js`
-2. Highlight the `applyFilters` function
+**Observe:** Both do the same thing, but `/explain` is faster!
+
+**Task 2: Generate documentation**
+1. Open `src/utils/dateHelpers.js`
+2. Highlight the `formatDateForInput` function (lines 18-31)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"How does this filtering work?"`
+4. Type: `/doc`
+5. Review the JSDoc comments Copilot adds!
 
-**Task 3: Understand component props**
-1. Open `src/components/TaskCard.jsx`
-2. Highlight the function signature
+**Task 3: Generate tests**
+1. Stay in `src/utils/dateHelpers.js`
+2. Highlight the `isOverdue` function (lines 55-64)
 3. Press **Ctrl/Cmd+I**
-4. Ask: `"What props does this component accept?"`
+4. Type: `/tests`
+5. Review the test cases Copilot generates
 
-**Task 4: Understand React event handler patterns**
+**Key Learning:** You can preview tests without actually creating the file!
+
+**Task 4: Understand React patterns**
 1. Open `src/components/TaskManager.jsx`
 2. Highlight lines 156-166 (the three handler functions: handleDeleteTask, handleToggleComplete, and handleStatusChange)
 3. Press **Ctrl/Cmd+I**
 4. Ask: `"Why are these wrapped in separate functions instead of calling the hook functions directly?"`
+
+**This one uses a question instead of a slash command because we want to learn "why", not just generate code.**
 
 ### Activity 1C: Explore with Autocomplete (3 min)
 **Use:** 👻 Autocomplete Mode
