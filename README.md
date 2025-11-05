@@ -118,9 +118,8 @@ By the end, you'll know:
 - `/doc` - Add documentation
 - `/optimize` - Improve performance
 - `/simplify` - Simplify code
-- `/new` - Set up new project
-- `/newNotebook` - Create Jupyter notebook
-- `/help` - List all commands
+
+**Tip:** Type `/help` in chat to see all available commands!
 
 ---
 
