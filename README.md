@@ -203,7 +203,7 @@ Open Copilot Chat (Ctrl/Cmd+Shift+I) and ask:
 "@workspace Trace the complete data flow when a user clicks the complete checkbox on a task. Show me all the functions involved from the UI click to the state update."
 ```
 
-**🏀 Did you notice?** Copilot's responses start with "Boomshakalaka! "
+**Did you notice?** Copilot's responses start with "Boomshakalaka! "
 
 This workshop includes a `.github/copilot-instructions.md` file that tells Copilot to prefix all responses with "Boomshakalaka! " (yes, like NBA Jam! 🏀) - it's a fun way to demonstrate that Copilot reads and follows project-specific instructions. In real projects, you'd use this file to set coding standards and conventions.
 
