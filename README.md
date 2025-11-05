@@ -107,9 +107,15 @@ By the end, you'll know:
 "@workspace Where are tasks stored?"
 ```
 
-**Context features:**
+**Chat participants (@ symbol):**
 - `@workspace` - Search and understand entire codebase
+- `@vscode` - Ask about VS Code features and settings
+- `@terminal` - Get help with terminal commands
+
+**Context variables (# symbol):**
 - `#file:name.js` - Reference specific files
+- `#selection` - Current code selection
+- `#editor` - Active editor content
 
 **Slash commands:**
 - `/explain` - Explain code
