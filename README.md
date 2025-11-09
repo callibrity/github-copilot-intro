@@ -208,7 +208,9 @@ What React patterns are used here?
 ```
 
 ```
-@workspace Trace the complete data flow when a user clicks the complete checkbox on a task. Show me all the functions involved from the UI click to the state update.
+@workspace Trace the complete data flow when a user clicks the
+complete checkbox on a task. Show me all the functions involved from
+the UI click to the state update.
 ```
 
 **Did you notice?** Copilot's responses start with "Boomshakalaka! "
@@ -266,7 +268,8 @@ This workshop includes a `.github/copilot-instructions.md` file that tells Copil
 4. Press **Ctrl/Cmd+I**
 5. Ask:
 ```
-Why are these wrapped in separate functions instead of calling the hook functions directly?
+Why are these wrapped in separate functions instead of calling the
+hook functions directly?
 ```
 
 **This one uses a question instead of a slash command because we want to learn "why", not just generate code.**
@@ -389,7 +392,10 @@ Add two date inputs for filtering by date range: 'From date' and 'To date'
 3. Press **Ctrl/Cmd+I**
 4. Ask:
 ```
-Update this to handle date range filtering. The FilterControls in #file:TaskManager.jsx now passes dateFrom and dateTo in the filters object. Filter tasks where dueDate falls within this range, handling null dates.
+Update this to handle date range filtering. The FilterControls in
+#file:TaskManager.jsx now passes dateFrom and dateTo in the filters
+object. Filter tasks where dueDate falls within this range, handling
+null dates.
 ```
 
 **Key Learning:** Using `#file:` in your prompt lets Copilot see your changes in other files! This helps it understand the full context and integrate your changes correctly.
@@ -407,7 +413,8 @@ Update this to handle date range filtering. The FilterControls in #file:TaskMana
 6. If they don't match, use **Inline Chat** on either location:
    - Ask:
 ```
-The field names don't match. Fix this to use consistent naming: dateFrom and dateTo
+The field names don't match. Fix this to use consistent naming:
+dateFrom and dateTo
 ```
 
 **Key Learning:** Always test AI-generated code! Copilot can create working code for each part, but sometimes naming inconsistencies slip through between files. This is why verification is critical.
@@ -475,12 +482,14 @@ Make all necessary changes across the codebase.
 
 Ask Agent follow-up questions:
 ```
-Why did you use a Context Provider for this instead of just component state?
+Why did you use a Context Provider for this instead of just
+component state?
 ```
 
 Or:
 ```
-Could you add a transition animation to make the theme switch smoother?
+Could you add a transition animation to make the theme switch
+smoother?
 ```
 
 **Key Learning:** Agent Mode excels at features that need architectural planning. It can design proper patterns (like Context for theme), not just write individual functions. But you still review and guide the implementation!
@@ -552,7 +561,8 @@ Press Enter and watch Agent Mode work!
 
 Continue the conversation with Agent:
 ```
-The BulkActionsBar doesn't appear when tasks are selected. What's wrong?
+The BulkActionsBar doesn't appear when tasks are selected.
+What's wrong?
 ```
 
 Or:
@@ -598,9 +608,9 @@ The Task Manager has **3 intentional bugs**. Find and fix them using different C
 Open Copilot Chat (Ctrl/Cmd+Shift+I):
 
 ```
-The search feature in my task manager is case-sensitive.
-If I search for 'review' it doesn't find 'Review pull requests'.
-What causes this and how do I make search case-insensitive?
+The search feature in my task manager is case-sensitive. If I search
+for 'review' it doesn't find 'Review pull requests'. What causes this
+and how do I make search case-insensitive?
 ```
 
 **Observe:** Copilot should mention using `.toLowerCase()` for case-insensitive comparisons.
@@ -680,7 +690,8 @@ With the `isOverdue` function still highlighted:
 1. Press **Ctrl/Cmd+I**
 2. Ask:
 ```
-This marks tasks due today as overdue. What's wrong with the logic?
+This marks tasks due today as overdue. What's wrong with the
+logic?
 ```
 
 **Observe:** Copilot should identify the timestamp comparison issue!
@@ -692,7 +703,8 @@ With the function still highlighted:
 1. Press **Ctrl/Cmd+I**
 2. Ask:
 ```
-Fix this to only mark tasks as overdue if they're before today (not including today)
+Fix this to only mark tasks as overdue if they're before today
+(not including today)
 ```
 3. Review the fix - it should strip time components and compare dates only
 4. Accept the changes
@@ -763,7 +775,8 @@ With the `sortByDueDate` function still highlighted:
 1. Press **Ctrl/Cmd+I**
 2. Ask:
 ```
-Fix this to use the compareDates helper function that's already imported at the top of this file
+Fix this to use the compareDates helper function that's already
+imported at the top of this file
 ```
 3. Review the fix
 4. Accept the changes
