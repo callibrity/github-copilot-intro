@@ -296,8 +296,8 @@ hook functions directly?
 Pick one (or try multiple):
 - ⭐ **Easy:** Priority filter checkboxes
 - ⭐⭐ **Medium:** Date range filter
-- ⭐⭐⭐ **Advanced (Agent Mode):** Dark mode toggle
-- ⭐⭐⭐ **Advanced (Agent Mode):** Bulk operations
+- ⭐⭐⭐ **Advanced:** Dark mode toggle
+- ⭐⭐⭐ **Advanced:** Bulk operations
 
 ---
 
@@ -421,7 +421,7 @@ dateFrom and dateTo
 
 ---
 
-### Feature C: Dark Mode Toggle (Agent Mode)
+### Feature C: Dark Mode Toggle
 
 **Goal:** Watch Agent Mode handle a feature that requires architectural planning
 
