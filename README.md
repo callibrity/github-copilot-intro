@@ -496,7 +496,7 @@ smoother?
 
 ---
 
-### Feature D: Bulk Operations (Agent Mode Showcase!)
+### Feature D: Bulk Operations
 
 **Goal:** Watch Agent Mode autonomously build a complex multi-file feature
 
