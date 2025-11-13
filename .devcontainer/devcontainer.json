@@ -2,10 +2,8 @@
   "name": "AI Workshop - Task Manager (GitHub Copilot)",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
 
+  // Features run during container creation. Node is already in the base image.
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    },
     "ghcr.io/devcontainers/features/git:1": {}
   },
 
@@ -31,12 +29,14 @@
         "files.eol": "\n",
         "javascript.updateImportsOnFileMove.enabled": "always",
         "typescript.updateImportsOnFileMove.enabled": "always",
+
         "[javascript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[javascriptreact]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
+
         "github.copilot.enable": {
           "*": true,
           "javascript": true,
@@ -45,6 +45,7 @@
           "typescriptreact": true,
           "markdown": true
         },
+
         "editor.inlineSuggest.enabled": true,
         "editor.quickSuggestions": {
           "comments": "on",
@@ -54,6 +55,7 @@
         "editor.suggestOnTriggerCharacters": true,
         "editor.acceptSuggestionOnEnter": "on",
         "github.copilot.editor.enableAutoCompletions": true,
+
         "terminal.integrated.defaultProfile.linux": "bash",
         "workbench.colorTheme": "Default Dark Modern",
         "editor.fontSize": 14,
@@ -63,8 +65,8 @@
     }
   },
 
+  // Expose the Vite dev server
   "forwardPorts": [5173],
-
   "portsAttributes": {
     "5173": {
       "label": "Task Manager App",
@@ -72,13 +74,41 @@
     }
   },
 
-  "postCreateCommand": "npm install",
+  /*
+    `updateContentCommand` runs ONLY when the repo content changes or is new.
+    This avoids re-running npm install every rebuild.
+  */
+  "updateContentCommand": "npm ci",
 
-  "postStartCommand": "echo '\n🤖 AI Workshop Environment Ready!\n\n✅ GitHub Copilot is ENABLED\n✅ All dependencies installed\n✅ Vitest testing configured\n✅ Ready to code!\n\n🚀 Start the app: npm run dev\n🧪 Run tests: npm test\n💬 Open Copilot Chat: Ctrl+Shift+I (Cmd+Shift+I on Mac)\n✨ Inline suggestions will appear as you type\n\n📚 See README.md for workshop exercises.\n'",
+  /*
+    Runs after a new container is created.
+    Good place for environment checks or simple messages.
+  */
+  "postCreateCommand": "echo '📦 Dependencies installed via npm ci'",
 
+  /*
+    postStartCommand runs when the container starts.
+    Shows full welcome message for new users or after container rebuilds.
+  */
+  "postStartCommand": "echo '\n🤖 AI Workshop Environment Ready!\n\n\
+✅ GitHub Copilot is ENABLED\n\
+✅ All dependencies installed\n\
+✅ Vitest testing configured\n\
+\n🚀 Start the app: npm run dev\n\
+🧪 Run tests: npm test\n\
+💬 Open Copilot Chat: Ctrl+Shift+I (Cmd+Shift+I)\n\
+✨ Inline suggestions will appear as you type\n\
+\n📚 See README.md for workshop exercises.\n'",
+
+  /*
+    postAttachCommand runs each time user attaches to the Codespace.
+    Keep this brief to avoid repetitive messages.
+  */
+  "postAttachCommand": "echo '🤖 Workshop ready! See README.md for exercises. Run: npm run dev'",
+
+  // Use default user included in image
   "remoteUser": "node",
 
-  "onCreateCommand": "echo '⏳ Setting up your workshop environment...' && echo '📦 Installing Node.js packages...'",
-
+  "onCreateCommand": "echo '⏳ Initial setup... Installing Node.js packages (npm ci)...'",
   "waitFor": "postCreateCommand"
 }
