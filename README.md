@@ -46,9 +46,9 @@ npm run dev
 
 This workshop teaches you to use GitHub Copilot effectively through three hands-on exercises:
 
-1. **Understanding Code** (15 min) - Use slash commands, @workspace, and inline chat to explore the codebase
-2. **Adding Features** (25 min) - Build filters, date pickers, and use Agent Mode for complex features
-3. **Debugging** (20 min) - Find and fix bugs using Copilot's various modes
+1. **Understanding Code** (15 min total) - Use slash commands, @workspace, and inline chat to explore the codebase
+2. **Adding Features** (64 min if all, 13-19 min per feature) - Build filters, date pickers, dark mode, or bulk operations using different Copilot modes
+3. **Debugging** (31 min if all, 10-11 min per bug) - Find and fix bugs using Copilot's various modes
 
 By the end, you'll know:
 - ✅ All four Copilot modes: Autocomplete, Chat, Inline Chat, and Agent Mode
@@ -182,7 +182,7 @@ By the end, you'll know:
 
 ---
 
-## 📚 Exercise 1: Understanding Existing Code (15 min)
+## 📚 Exercise 1: Understanding Existing Code (15 min total)
 
 **Goal:** Learn to explore unfamiliar code using Copilot's four modes
 
@@ -287,17 +287,17 @@ hook functions directly?
 
 ---
 
-## 🛠️ Exercise 2: Adding New Features (25 min)
+## 🛠️ Exercise 2: Adding New Features (64 min if all features, 13-19 min per feature)
 
 **Goal:** Use Copilot to implement new features
 
 ### Choose Your Feature
 
 Pick one (or try multiple):
-- ⭐ **Easy:** Priority filter checkboxes
-- ⭐⭐ **Medium:** Date range filter
-- ⭐⭐⭐ **Advanced:** Dark mode toggle
-- ⭐⭐⭐ **Advanced:** Bulk operations
+- ⭐ **Easy:** Priority filter checkboxes (13 min)
+- ⭐⭐ **Medium:** Date range filter (19 min)
+- ⭐⭐⭐ **Advanced:** Dark mode toggle (14 min)
+- ⭐⭐⭐ **Advanced:** Bulk operations (18 min)
 
 ---
 
@@ -578,7 +578,7 @@ Agent will diagnose issues and fix them!
 
 ---
 
-## 🐛 Exercise 3: Debugging (20 min)
+## 🐛 Exercise 3: Debugging (31 min if all bugs, 10-11 min per bug)
 
 **Goal:** Use Copilot to find and fix bugs
 
@@ -586,7 +586,7 @@ The Task Manager has **3 intentional bugs**. Find and fix them using different C
 
 ---
 
-### Bug #1: The Case-Sensitive Search Bug
+### Bug #1: The Case-Sensitive Search Bug (10 min)
 
 **Symptom:** Searching for "review" doesn't find "Review pull requests" - search only works with exact case matches
 
@@ -657,7 +657,7 @@ and how do I make search case-insensitive?
 
 ---
 
-### Bug #2: The Today Paradox
+### Bug #2: The Today Paradox (11 min)
 
 **Symptom:** Tasks due TODAY incorrectly show as "Overdue!" in red
 
@@ -728,7 +728,7 @@ Now that the function works, prevent future bugs:
 
 ---
 
-### Bug #3: The Sorting Shuffle
+### Bug #3: The Sorting Shuffle (10 min)
 
 **Symptom:** When sorting by due date, "Organize garage" (which has no due date) appears FIRST instead of LAST, regardless of sort direction
 
